@@ -9,6 +9,8 @@ const prizes = [
     {value: "bmw", probability: 0},
 ]
 
+//function to choose which one that win
+//TEST
 function countProb(){
     var result = Math.random().toFixed(3)
     var prob = [0, 0.001, 0.01, 0.139, 0.15, 0.2, 0.23, 0.28]
