@@ -18,9 +18,9 @@ function countProb(){
 
     var idx = prob.indexOf(result) + 1
 
-    console.log(idx)
+    // console.log(idx)
 
-    console.log(prob)
+    // console.log(prob)
 
     console.log(prizes[idx].value)
 }
