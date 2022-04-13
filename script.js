@@ -1,41 +1,43 @@
 const prizes = [
-    {value: "1000", probability: 0.28},
-    {value: "3000", probability: 0.22},
-    {value: "5000", probability: 0.2},
-    {value: "10000", probability: 0.15},
-    {value: "15000", probability: 0.139},
-    {value: "iphone 13", probability: 0.01},
-    {value: "honda scoopy", probability: 0.001},
-    {value: "bmw", probability: 0},
+    {value: "1000", probability: 0.28, max: 202.5, min: 157.5},
+    {value: "3000", probability: 0.22, max: 337.5, min: 292.5},
+    {value: "5000", probability: 0.2, max: 382.5, min: 337.5},
+    {value: "10000", probability: 0.15, max: 157.5, min: 112.5},
+    {value: "15000", probability: 0.13, max: 67.5, min: 22.5},
+    {value: "iphone 13", probability: 0.01, max: 292.5, min: 247.5},
+    {value: "honda scoopy", probability: 0, max: 112.5, min: 67.5},
+    {value: "bmw", probability: 0, max: 247.5, min: 157.5},
 ]
 
-//function to choose which one that win
-//TEST
-function countProb(){
-    var result = Math.random().toFixed(3)
-    var prob = [0, 0.001, 0.01, 0.139, 0.15, 0.2, 0.23, 0.28]
+var completeList = []
+var winningIdx = 0
+var result = ""
 
-    prob.push(result)
-    prob.sort(function(a, b) {return a-b})
+console.log(result)
 
-    var idx = prob.indexOf(result) + 1
-
-    // console.log(idx)
-
-    // console.log(prob)
-
-    console.log(prizes[idx].value)
+function setProb(){
+    for (i = 0; i < prizes.length; i++){
+        for (j = 0; j < prizes[i].probability*100; j++) {
+            completeList.push(i)
+        }
+    }
 }
 
-countProb()
+function countProb(){
+    winningIdx = completeList[Math.floor(Math.random()*completeList.length)]
+    result = prizes[winningIdx].value
+}
 
 function rotateFunction(){
-    var min = 1024;
-    var max = 9999;
-    // var deg = Math.floor(Math.random() * (max - min)) + min;
-    var deg = 180
-    document.getElementById('box').style.transform = "rotate("+deg+"deg)";
-    console.log(deg)
+    setProb()
+    countProb()
+    console.log(result)
+    var randomSpin = Math.floor(Math.random() * 50) +10
+    var fullSpin = 360 * randomSpin
+    var min = prizes[winningIdx].min
+    var max = prizes[winningIdx].max
+    var deg = Math.floor(Math.random() * (max - min) + min) + fullSpin
+    document.getElementById('box').style.transform = "rotate("+deg+"deg)"
 
     var element = document.getElementById('mainbox');
     element.classList.remove('animate');
@@ -44,4 +46,3 @@ function rotateFunction(){
         element.classList.add('animate');
     }, 5000);
 }
-
