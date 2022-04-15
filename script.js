@@ -25,6 +25,8 @@ setupPage()
 
 function setupPage(){
     disableBtn("spinBtn")
+
+    
 }
 
 function setProb(){
