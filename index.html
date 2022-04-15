@@ -8,6 +8,12 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="cekKode" id="inputKode">
+        <input type="text" id="inputContent">
+    </div>
+    <div class="cekKode" id="checkBtnContainer">
+        <button onclick="checkKode()">Cek Kode</button>
+    </div>
     <div id="mainbox" class="mainbox">
         <div id="box" class="box">
             <div class="box1">
@@ -23,7 +29,7 @@
                 <span class="span4"><b>bmw</b></span>
             </div>
         </div>
-        <button class="spin" onclick="rotateFunction()">SPIN</button>
+        <button id="spinBtn" class="spin" onclick="rotateFunction()">SPIN</button>
     </div>
     <script src="script.js"></script>
 </body>

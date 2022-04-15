@@ -9,11 +9,23 @@ const prizes = [
     {value: "bmw", probability: 0, max: 247.5, min: 157.5},
 ]
 
+const activeCode = [
+    {kode: "qwerty", spinAmount: 1},
+    {kode: "admin", spinAmount: 3},
+    {kode: "lorem", spinAmount: 2}
+]
+
 var completeList = []
 var winningIdx = 0
 var result = ""
 
 console.log(result)
+
+setupPage()
+
+function setupPage(){
+    disableBtn("spinBtn")
+}
 
 function setProb(){
     for (i = 0; i < prizes.length; i++){
@@ -45,4 +57,25 @@ function rotateFunction(){
     setTimeout(function(){
         element.classList.add('animate');
     }, 5000);
+}
+
+//kode sementara: qwerty
+function checkKode(){
+    let kode = document.getElementById("inputContent").value
+    for (i=0; i<activeCode.length; i++){
+        if (activeCode[i].kode == kode){
+            alert("kode benar")
+            enableBtn("spinBtn")
+            break
+        }
+    }
+    alert("kode salah")
+}
+
+function disableBtn(buttonId){
+    document.getElementById(buttonId).disabled = true
+}
+
+function enableBtn(buttonId){
+    document.getElementById(buttonId).disabled = false
 }
